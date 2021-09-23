@@ -59,7 +59,7 @@ gamePopupEnd.classList.remove('hidden');
 gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
 gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
 btnCont.classList.add('hidden');
-audioMusic.pause();
+audioMusic.remove();
 audioMusicDora.play()
 });
 
