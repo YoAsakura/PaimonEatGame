@@ -14,6 +14,22 @@ const btnCont = document.querySelector('.btn-cont');
 const gamePopupEnd = document.querySelector('.main-box__end-game');
 const btnReset = document.querySelector('.btn-reset');
 
+/* Курсор */
+
+let mouse = document.querySelector('.mouse');
+let customMouse = function(e) {
+  let mouseCoord = {
+      x: e.clientX,
+      y: e.clientY,
+  }
+
+  mouse.style.top = `${(mouseCoord.y - 6)}px`;
+  mouse.style.left = `${(mouseCoord.x - 7)}px`;
+}
+
+document.addEventListener('mousemove', customMouse);
+
+/* ------------- */
 const gameBackpackCounterEat = document.querySelector('.main-box__backpack-eat-counter');
 const LEFT_MOUSE_BUTTON = 0;
 let eatForBackpack = 0;
@@ -35,12 +51,17 @@ audioMusicLose.volume = 0.70;
 const audioMusicWin = document.querySelector('.main-box__music-win');
 audioMusicWin.volume = 0.80;
 
+const audioMusicDora = document.querySelector('.main-box__dora');
+
+
 btnCont.addEventListener('mousedown', (e)=>{
 e.preventDefaultl;
 gamePopupEnd.classList.remove('hidden');
 gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
 gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
 btnCont.classList.add('hidden');
+audioMusic.pause();
+audioMusicDora.play()
 });
 
 btnReset.addEventListener('mousedown', (e)=>{
@@ -55,17 +76,17 @@ let endGameFunc = function(){
         gameDialogText.innerHTML = 'Как можно быть таким криворуким?';
         document.querySelector('.main-box__paimon-smile').setAttribute('src', 'images/paimon-lose-smile.gif');
         document.querySelector('.main-box__paimon-popup-img').setAttribute('src', 'images/paimon-lose.gif');
-        audioMusicLose.play();
+       audioMusicLose.play();
         break;
       case 5:
         gameDialogText.innerHTML = 'Вся еда в сумке, выдвигаемся?';
         document.querySelector('.main-box__paimon-smile').setAttribute('src', 'images/paimon-win-smile.gif');
         document.querySelector('.main-box__paimon-popup-img').setAttribute('src', 'images/paimon-win.gif');
-        audioMusicWin.play();
+       audioMusicWin.play();
         break;
         default:
           gameDialogText.innerHTML = `Готово, ${destroyEat} испорчено, а ${eatForBackpack} в сумке.`;
-          audioMusicWin.play();
+         audioMusicWin.play();
     }
 
     gamePaimonPopup.classList.add('main-box__paimon-popup--show');

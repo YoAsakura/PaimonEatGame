@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
     border: 0px;
+    cursor: none !important;
   }
   
   *,
@@ -29,6 +30,7 @@
 
   html {
     font-size: 18px;
+    cursor: none;
   }
   
   html,
@@ -59,7 +61,6 @@
   }
   
   button {
-    cursor: pointer;
     background-color: inherit;
   }
   
@@ -283,7 +284,6 @@
     flex-direction: column;
     background-color: #E9E5DC;
     border-radius: 5px;
-    cursor: pointer;
     z-index: 5;
     transition: transform 0.1s linear, box-shadow 0.1s linear;
     position: relative;
@@ -680,4 +680,10 @@
 
   .hidden {
     display: none;
+  }
+
+  .mouse {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
   }
