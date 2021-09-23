@@ -43,7 +43,6 @@ gamePaimonDialog.addEventListener('click', (e)=>{
 
 const audioMusic = document.querySelector('.main-box__music');
 audioMusic.volume = 0.40;
-audioMusic.play();
 
 const audioMusicLose = document.querySelector('.main-box__music-lose');
 audioMusicLose.volume = 0.70;
