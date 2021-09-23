@@ -1,6 +1,6 @@
 
 (()=>{
-
+  window.onload = function() {
 const gameArea = document.querySelector('.main-box__game-area');
 const gameBackpackBox = document.querySelector('.main-box__right-menu');
 const gameBackpack = document.querySelector('.main-box__backpack-item');
@@ -225,4 +225,6 @@ gameControlArr.forEach((EachGameElement)=>{
     }
   });
 }); 
+
+}
 })()
