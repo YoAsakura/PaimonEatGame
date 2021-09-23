@@ -11,7 +11,11 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
+
+  html::-webkit-scrollbar { width: 0; }
+  html{ -ms-overflow-style: none; }
+  html{ overflow: -moz-scrollbars-none; }
+
   aside,
   nav,
   footer,
@@ -207,6 +211,21 @@
   }
 
   .main-box__backpack-eat-counter {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .main-box__music {
     position: absolute;
     -webkit-appearance: none;
     -moz-appearance: none;
