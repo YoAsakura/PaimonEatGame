@@ -51,7 +51,7 @@ const audioMusicWin = document.querySelector('.main-box__music-win');
 audioMusicWin.volume = 0.80;
 
 const audioMusicDora = document.querySelector('.main-box__dora');
-
+audioMusicDora.volume = 0.60;
 
 btnCont.addEventListener('mousedown', (e)=>{
 e.preventDefaultl;
