@@ -4,11 +4,139 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CollisionGameJs</title>
+    <title>paimonEatGame: Сложи еду в поход</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    
+
+<div class="wrapper">
+    <section class="main-box container">
+        <audio class="main-box__music" loop src="audio/mond.m4a"></audio>
+        <audio class="main-box__music-lose" src="audio/paimon-lose-audio.m4a"></audio>
+        <audio class="main-box__music-win" src="audio/paimon-win-audio.m4a"></audio>
+
+        <div class="main-box__game-area">
+        <div class="main-box__menu-conteiner">
+            <div class="main-box__left-menu main-box__left-menu--show">
+                <ul class="main-box__eat-list">
+                    <li class="main-box__eat-item main-box__eat-item--hover main-box__eat-item--common">
+                        <div class="main-box__eat-item-top">
+                            <img class="main-box__eat-item-baff" src="images/heal-baff-icon.svg" alt="Еда на отхил">
+                            <img class="main-box__eat-item-image" src="images/eat-img1.png" alt="">
+                            <div class="main-box__eat-item-star-list">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                               
+                            </div>
+                        </div>
+                        <div class="main-box__eat-item-bottom-number-box">
+                            <p class="main-box__eat-item-bottom-number-count">1</p>
+                        </div>
+                    </li>
+                    <li class="main-box__eat-item main-box__eat-item--hover main-box__eat-item--uncommon">
+                        <div class="main-box__eat-item-top">
+                            <img class="main-box__eat-item-baff" src="images/stamina-baff-icon.svg" alt="Еда на отхил">
+                            <img class="main-box__eat-item-image" src="images/eat-img2.png" alt="">
+                            <div class="main-box__eat-item-star-list">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+
+                            </div>
+                        </div>
+                        <div class="main-box__eat-item-bottom-number-box">
+                            <p class="main-box__eat-item-bottom-number-count">1</p>
+                        </div>
+                    </li>
+                    <li class="main-box__eat-item main-box__eat-item--hover main-box__eat-item--rare">
+                        <div class="main-box__eat-item-top">
+                            <img class="main-box__eat-item-baff" src="images/heal-baff-icon.svg" alt="Еда на отхил">
+                            <img class="main-box__eat-item-image" src="images/eat-img3.png" alt="">
+                            <div class="main-box__eat-item-star-list">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                               
+                            </div>
+                        </div>
+                        <div class="main-box__eat-item-bottom-number-box">
+                            <p class="main-box__eat-item-bottom-number-count">1</p>
+                        </div>
+                    </li>
+                    <li class="main-box__eat-item main-box__eat-item--hover main-box__eat-item--epic">
+                        <div class="main-box__eat-item-top">
+                            <img class="main-box__eat-item-baff" src="images/heal-baff-icon.svg" alt="Еда на отхил">
+                            <img class="main-box__eat-item-image" src="images/eat-img4.png" alt="">
+                            <div class="main-box__eat-item-star-list">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                            </div>
+                        </div>
+                        <div class="main-box__eat-item-bottom-number-box">
+                            <p class="main-box__eat-item-bottom-number-count">1</p>
+                        </div>
+                    </li>
+                    <li class="main-box__eat-item main-box__eat-item--hover main-box__eat-item--legendary">
+                        <div class="main-box__eat-item-top">
+                            <img class="main-box__eat-item-baff main-box__eat-item-baff--attack" src="images/attack-baff-icon.svg" alt="Еда на отхил">
+                            <img class="main-box__eat-item-image" src="images/eat-img5.png" alt="">
+                            <div class="main-box__eat-item-star-list">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                                <img class="main-box__eat-item-star" width="19px" height="19px" src="images/star-icon.svg" alt="Звезда">
+                            </div>
+                        </div>
+                        <div class="main-box__eat-item-bottom-number-box">
+                            <p class="main-box__eat-item-bottom-number-count">1</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="main-box__right-menu main-box__right-menu--show">
+            <div class="main-box__backpack-conteiner">
+                <div class="main-box__backpack-item">
+                    <img class="main-box__backpack-image" src="images/eat-backpack.png" alt="Сухпаёк (Меню №30)">
+                </div>
+                <div class="main-box__backpack-eat-counter">
+
+                </div>
+            </div>
+        </div>
+
+            <div class="main-box__paimon-popup-dialog">
+            <div class="main-box__paimon-popup-dialog-conteiner">
+                <h2 class="main-box__paimon-dialog-name">Паймон</h2>
+                <p class="main-box__paimon-dialog-desc">Вся еда испорчена, ты доволен?</p>
+                <img class="main-box__paimon-smile" src="images/paimon-win-smile.gif">
+                <div class="main-box__dialog-bootom-icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="main-box__paimon-popup">
+            <div class="main-box__paimon-popup-conteiner">
+                <div class="main-box__paimon-popup-item">
+                    <img width="600px" height="704px" class="main-box__paimon-popup-img" src="images/paimon-win.gif" alt="Паймон">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-cont hidden">Класс!</button>
+        <div class="main-box__end-game hidden">
+            <img class="main-box__paimon-dance" src="images/paimon-end-game.gif" alt="Пайомон танцует">
+            <p class="main-box__paimon-desc">Игра находится в бета тесте, в будущем планируются обновления!</p>
+            <button class="btn btn-reset">Помолиться еще раз</button>
+        </div>
+        </div>
+    </section>
+
+</div>
 </body>
 </html>
