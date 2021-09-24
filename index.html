@@ -12,6 +12,17 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
+
+
+<div class="loader loader-show">
+    <div class="color-image">
+        <div class="color-mask"></div>
+        <img src="images/loader.png" alt="">
+    </div>
+</div>
+
+<div class="main-box__black-back main-box__black-back--show"></div>
+
 <div class="video-back">
     <video id="vid" preload="" muted="" autoplay="" loop="" playsinline="">
         <source src="video/backvideo.mp4" type="video/mp4">
@@ -29,7 +40,7 @@
         
 <div class="wrapper">
     <section class="main-box container">
-        <embed class="main-box__music" autoplay loop  src="audio/mond.m4a"></embed>
+       <embed class="main-box__music" loop  src="audio/mond.m4a"></embed> 
         <audio class="main-box__music-lose" src="audio/paimon-lose-audio.m4a"></audio>
         <audio class="main-box__music-win" src="audio/paimon-win-audio.m4a"></audio>
         <audio class="main-box__dora" loop src="audio/dora.m4a"></audio>
@@ -143,7 +154,19 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-cont hidden">Класс!</button>
+
+        <div class="main-box__dialog-counter">
+            <button class="main-box__dialog-item">Класс!</button>
+            <button class="main-box__dialog-item">Я старался!</button>
+        </div>
+
+        <div class="main-box__rule-popup main-box__rule-popup--show hidden">
+         <h3 class="main-box__rule-heading">Правила:</h3>
+         <p class="main-box__rule-desc">Все просто, Паймон просит собрать еду с собой в приключения.</p>
+         <p class="main-box__rule-desc">Только ничего не урони!</p>
+         <button class="btn btn-rule">Понял</button>
+        </div>
+
         <div class="main-box__end-game hidden">
             <img class="main-box__paimon-dance" src="images/paimon-end-game.gif" alt="Пайомон танцует">
             <p class="main-box__paimon-desc">Игра находится в бета тесте, в будущем планируются обновления!<br>

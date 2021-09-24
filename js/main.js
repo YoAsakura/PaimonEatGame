@@ -1,6 +1,21 @@
 
 (()=>{
   window.onload = function() {
+
+    const loader = document.querySelector('.loader');
+    const colorLoaderImage = document.querySelector('.color-mask');
+
+    colorLoaderImage.classList.add('color-mask--loaded');
+    setTimeout(()=> {
+      loader.classList.remove('loader-show');
+
+      setTimeout(()=> {
+        loader.classList.add('hidden');
+        gamePopupRule.classList.remove('hidden')
+      }, 1200)
+    }, 1500);
+
+
 const gameArea = document.querySelector('.main-box__game-area');
 const gameBackpackBox = document.querySelector('.main-box__right-menu');
 const gameBackpack = document.querySelector('.main-box__backpack-item');
@@ -10,9 +25,13 @@ const gamePaimonPopup = document.querySelector('.main-box__paimon-popup');
 const gamePaimonDialog = document.querySelector('.main-box__paimon-popup-dialog');
 const gameLeftMenuBox = document.querySelector('.main-box__left-menu');
 const gameRightMenuBox = document.querySelector('.main-box__right-menu');
-const btnCont = document.querySelector('.btn-cont');
+const btnContBox = document.querySelector('.main-box__dialog-counter');
+const btnCont = document.querySelectorAll('.main-box__dialog-item');
 const gamePopupEnd = document.querySelector('.main-box__end-game');
 const btnReset = document.querySelector('.btn-reset');
+const btnRule = document.querySelector('.btn-rule');
+const gamePopupRule = document.querySelector('.main-box__rule-popup');
+const gamePopupBlackBack = document.querySelector('.main-box__black-back');
 
 /* Курсор */
 
@@ -30,16 +49,11 @@ let customMouse = function(e) {
 document.addEventListener('mousemove', customMouse);
 
 /* ------------- */
+
 const gameBackpackCounterEat = document.querySelector('.main-box__backpack-eat-counter');
 const LEFT_MOUSE_BUTTON = 0;
 let eatForBackpack = 0;
 let destroyEat = 0;
-
-gamePaimonDialog.addEventListener('click', (e)=>{
-  e.preventDefaultl;
-  gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
-  gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
-  });
 
 const audioMusic = document.querySelector('.main-box__music');
 audioMusic.volume = 0.40;
@@ -53,15 +67,31 @@ audioMusicWin.volume = 0.80;
 const audioMusicDora = document.querySelector('.main-box__dora');
 audioMusicDora.volume = 0.60;
 
-btnCont.addEventListener('mousedown', (e)=>{
-e.preventDefaultl;
-gamePopupEnd.classList.remove('hidden');
-gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
-gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
-btnCont.classList.add('hidden');
-audioMusic.remove();
-audioMusicDora.play();
-});
+btnCont.forEach((el)=>{
+  el.addEventListener('mousedown', (e)=>{
+    e.preventDefaultl;
+    gamePopupEnd.classList.remove('hidden');
+    gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
+    gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
+    btnContBox.classList.remove('main-box__dialog-counter--show');
+    audioMusic.remove();
+    audioMusicDora.play();
+    });
+})
+
+
+btnRule.addEventListener('mousedown', (e)=>{
+  e.preventDefaultl;
+  gamePopupBlackBack.classList.remove('main-box__black-back--show')
+  gamePopupRule.classList.remove('main-box__rule-popup--show');
+  setTimeout(()=> {
+    gamePopupRule.classList.add('hidden');
+  }, 500)
+
+  setTimeout(()=> {
+    gamePopupBlackBack.classList.add('hidden')
+  }, 500)
+  });
 
 btnReset.addEventListener('mousedown', (e)=>{
   e.preventDefaultl;
@@ -92,7 +122,7 @@ let endGameFunc = function(){
     gamePaimonDialog.classList.add('main-box__paimon-popup-dialog--show');
     gameLeftMenuBox.classList.remove('main-box__left-menu--show');
     gameRightMenuBox.classList.remove('main-box__right-menu--show');
-    btnCont.classList.remove('hidden');
+    btnContBox.classList.add('main-box__dialog-counter--show');
   }
 }
 
