@@ -74,7 +74,9 @@ btnCont.forEach((el)=>{
     gamePaimonDialog.classList.remove('main-box__paimon-popup-dialog--show');
     gamePaimonPopup.classList.remove('main-box__paimon-popup--show');
     btnContBox.classList.remove('main-box__dialog-counter--show');
-    audioMusic.remove();
+    audioMusic.pause();
+    audioMusicLose.pause();
+    audioMusicWin.pause();
     audioMusicDora.play();
     });
 })
