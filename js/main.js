@@ -86,6 +86,7 @@ btnRule.addEventListener('mousedown', (e)=>{
   e.preventDefaultl;
   gamePopupBlackBack.classList.remove('main-box__black-back--show')
   gamePopupRule.classList.remove('main-box__rule-popup--show');
+  audioMusic.play();
   setTimeout(()=> {
     gamePopupRule.classList.add('hidden');
   }, 500)
